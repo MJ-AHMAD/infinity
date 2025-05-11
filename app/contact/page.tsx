@@ -1,6 +1,6 @@
 import Image from "next/image"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { MapPin, Phone, Mail, Clock, Globe } from "lucide-react"
+import { MapPin, Mail, Clock } from "lucide-react"
 import ContactForm from "@/components/contact-form"
 
 export default function ContactPage() {
@@ -35,20 +35,11 @@ export default function ContactPage() {
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <Phone className="h-5 w-5 text-primary mt-1" />
-                  <div>
-                    <h3 className="font-medium">Phone</h3>
-                    <p className="text-muted-foreground">+880 1234 567890</p>
-                    <p className="text-muted-foreground">+880 1234 567891</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
                   <Mail className="h-5 w-5 text-primary mt-1" />
                   <div>
                     <h3 className="font-medium">Email</h3>
-                    <p className="text-muted-foreground">info@trustedally.gov.bd</p>
-                    <p className="text-muted-foreground">support@trustedally.gov.bd</p>
+                    <p className="text-muted-foreground">t-ally@outlook.com</p>
+                    <p className="text-muted-foreground">mja@trustedally.onmicrosoft.com</p>
                   </div>
                 </div>
 
@@ -58,14 +49,6 @@ export default function ContactPage() {
                     <h3 className="font-medium">Office Hours</h3>
                     <p className="text-muted-foreground">Sunday - Thursday: 9:00 AM - 5:00 PM</p>
                     <p className="text-muted-foreground">Friday - Saturday: Closed</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <Globe className="h-5 w-5 text-primary mt-1" />
-                  <div>
-                    <h3 className="font-medium">Website</h3>
-                    <p className="text-muted-foreground">www.trustedally.gov.bd</p>
                   </div>
                 </div>
               </CardContent>
@@ -108,10 +91,7 @@ export default function ContactPage() {
                 For inquiries related to tourism, attractions, and visitor information.
               </p>
               <p>
-                <span className="font-medium">Email:</span> tourism@trustedally.gov.bd
-              </p>
-              <p>
-                <span className="font-medium">Phone:</span> +880 1234 567892
+                <span className="font-medium">Email:</span> tourism@trustedally.onmicrosoft.com
               </p>
             </CardContent>
           </Card>
@@ -125,10 +105,7 @@ export default function ContactPage() {
                 For inquiries related to educational institutions and programs.
               </p>
               <p>
-                <span className="font-medium">Email:</span> education@trustedally.gov.bd
-              </p>
-              <p>
-                <span className="font-medium">Phone:</span> +880 1234 567893
+                <span className="font-medium">Email:</span> education@trustedally.onmicrosoft.com
               </p>
             </CardContent>
           </Card>
@@ -142,10 +119,7 @@ export default function ContactPage() {
                 For inquiries related to business opportunities and economic initiatives.
               </p>
               <p>
-                <span className="font-medium">Email:</span> economic@trustedally.gov.bd
-              </p>
-              <p>
-                <span className="font-medium">Phone:</span> +880 1234 567894
+                <span className="font-medium">Email:</span> economic@trustedally.onmicrosoft.com
               </p>
             </CardContent>
           </Card>
@@ -159,10 +133,7 @@ export default function ContactPage() {
                 For inquiries related to environmental conservation and climate initiatives.
               </p>
               <p>
-                <span className="font-medium">Email:</span> environment@trustedally.gov.bd
-              </p>
-              <p>
-                <span className="font-medium">Phone:</span> +880 1234 567895
+                <span className="font-medium">Email:</span> environment@trustedally.onmicrosoft.com
               </p>
             </CardContent>
           </Card>
@@ -174,10 +145,7 @@ export default function ContactPage() {
             <CardContent>
               <p className="text-muted-foreground mb-4">For inquiries related to healthcare facilities and programs.</p>
               <p>
-                <span className="font-medium">Email:</span> health@trustedally.gov.bd
-              </p>
-              <p>
-                <span className="font-medium">Phone:</span> +880 1234 567896
+                <span className="font-medium">Email:</span> health@trustedally.onmicrosoft.com
               </p>
             </CardContent>
           </Card>
@@ -191,10 +159,7 @@ export default function ContactPage() {
                 For inquiries related to infrastructure projects and development.
               </p>
               <p>
-                <span className="font-medium">Email:</span> infrastructure@trustedally.gov.bd
-              </p>
-              <p>
-                <span className="font-medium">Phone:</span> +880 1234 567897
+                <span className="font-medium">Email:</span> infrastructure@trustedally.onmicrosoft.com
               </p>
             </CardContent>
           </Card>
@@ -257,4 +222,3 @@ export default function ContactPage() {
     </div>
   )
 }
-

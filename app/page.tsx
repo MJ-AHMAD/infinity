@@ -1,235 +1,278 @@
-"use client"
-
-import { useState } from "react"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import Link from "next/link"
 import {
-  LineChart,
-  BarChart,
-  AreaChart,
-  PieChart,
-  BarChart3,
+  ArrowRight,
+  Compass,
+  GraduationCap,
+  Building,
+  Cloud,
+  Heart,
+  Stethoscope,
+  Anchor,
+  RouteIcon as Road,
+  BookOpen,
+  Droplet,
   Users,
-  ArrowUpRight,
-  Inbox,
-  CheckCheck,
+  Leaf,
+  Github,
+  Coffee,
+  Mail,
+  Star,
+  GitFork,
+  Code,
+  FileText,
+  BookOpenCheck,
 } from "lucide-react"
-import { DashboardStats } from "@/components/dashboard/dashboard-stats"
-import { RecentActivities } from "@/components/dashboard/recent-activities"
-import { ProjectProgress } from "@/components/dashboard/project-progress"
-import { LoginForm } from "@/components/auth/login-form"
+import HeroSlideshow from "@/components/hero-slideshow"
+import VisionProjectsSection from "@/components/vision-projects-section"
+import StatisticsSection from "@/components/statistics-section"
+import FeaturedProject from "@/components/featured-project"
+import HomeTestimonials from "@/components/home-testimonials"
+import NewsUpdates from "@/components/news-updates"
+import NewsletterSubscription from "@/components/newsletter-subscription"
+import LanguageSelector from "@/components/language-selector"
+import { Badge } from "@/components/ui/badge"
 
-export default function DashboardPage() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
-  const [currentUser, setCurrentUser] = useState<any>(null)
-
-  const handleLoginSuccess = (userData: any) => {
-    setCurrentUser(userData)
-    setIsLoggedIn(true)
-  }
-
-  if (!isLoggedIn) {
-    return (
-      <div className="flex min-h-screen items-center justify-center bg-muted/40">
-        <div className="w-full max-w-md">
-          <Card>
-            <CardHeader className="space-y-1">
-              <CardTitle className="text-2xl text-center">Admin Dashboard</CardTitle>
-              <CardDescription className="text-center">Cox's Bazar District Management System</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <LoginForm onSuccess={handleLoginSuccess} />
-            </CardContent>
-          </Card>
-        </div>
-      </div>
-    )
-  }
+export default function Home() {
+  const hubs = [
+    {
+      name: "Tourist Hub",
+      icon: Compass,
+      href: "/tourist-hub",
+      description: "Explore the beautiful beaches and attractions",
+    },
+    {
+      name: "Education Hub",
+      icon: GraduationCap,
+      href: "/education-hub",
+      description: "Educational institutions and initiatives",
+    },
+    { name: "Economic Hub", icon: Building, href: "/economic-hub", description: "Economic activities and development" },
+    { name: "Climate Hub", icon: Cloud, href: "/climate-hub", description: "Climate information and initiatives" },
+    { name: "Social Initiatives", icon: Heart, href: "/social-initiatives", description: "Community welfare programs" },
+    { name: "Health Hub", icon: Stethoscope, href: "/health-hub", description: "Healthcare facilities and services" },
+    {
+      name: "Marine Resource Hub",
+      icon: Anchor,
+      href: "/marine-resource-hub",
+      description: "Marine resources and conservation",
+    },
+    {
+      name: "Infrastructure Hub",
+      icon: Road,
+      href: "/infrastructure-hub",
+      description: "Infrastructure development projects",
+    },
+    { name: "Research Hub", icon: BookOpen, href: "/research-hub", description: "Research activities and findings" },
+    {
+      name: "Water Resources Hub",
+      icon: Droplet,
+      href: "/water-resources-hub",
+      description: "Water management and conservation",
+    },
+    { name: "Community Hub", icon: Users, href: "/community-hub", description: "Community engagement and activities" },
+    {
+      name: "Sustainable Development Hub",
+      icon: Leaf,
+      href: "/sustainable-development-hub",
+      description: "Sustainable development initiatives",
+    },
+  ]
 
   return (
-    <div className="flex min-h-screen">
-      {/* Content area */}
-      <main className="flex-1 overflow-y-auto">
-        <div className="container mx-auto p-6">
-          <div className="mb-8">
-            <h1 className="text-3xl font-bold tracking-tight">Dashboard</h1>
-            <p className="text-muted-foreground">
-              Welcome, {currentUser?.name} ({currentUser?.role})
+    <div>
+      {/* Open Source Project Banner */}
+      <div className="bg-gradient-to-r from-blue-600 to-teal-500 text-white py-3">
+        <div className="container mx-auto px-4 text-center">
+          <p className="flex items-center justify-center gap-2">
+            <Code className="h-4 w-4" />
+            <span>Open Source Project - Contributions Welcome!</span>
+            <Link href="https://github.com/MJ-AHMAD" className="underline ml-2 hover:text-blue-100">
+              View on GitHub
+            </Link>
+          </p>
+        </div>
+      </div>
+
+      <HeroSlideshow />
+
+      {/* Open Source Project Info */}
+      <div className="container mx-auto px-4 py-12 bg-white">
+        <div className="max-w-4xl mx-auto text-center">
+          <Badge variant="outline" className="mb-4 px-3 py-1">
+            Open Source
+          </Badge>
+          <h1 className="text-4xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-teal-500 bg-clip-text text-transparent">
+            Cox's Bazar District Management System
+          </h1>
+          <p className="text-lg text-gray-600 mb-8">
+            An open source platform designed to provide comprehensive information and services for Cox's Bazar district.
+            This project aims to connect various sectors and initiatives to create a unified management system.
+          </p>
+          <div className="flex flex-wrap justify-center gap-4 mb-8">
+            <Button asChild className="gap-2">
+              <Link href="https://github.com/MJ-AHMAD">
+                <Github className="h-4 w-4" />
+                GitHub Repository
+              </Link>
+            </Button>
+            <Button asChild variant="outline" className="gap-2">
+              <Link href="https://github.com/Sponsors/MJ-AHMAD">
+                <Heart className="h-4 w-4 text-red-500" />
+                Sponsor Project
+              </Link>
+            </Button>
+            <Button asChild variant="outline" className="gap-2">
+              <Link href="https://ko-fi.com/mjahmad">
+                <Coffee className="h-4 w-4 text-amber-600" />
+                Support on Ko-fi
+              </Link>
+            </Button>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            <Card>
+              <CardHeader className="pb-2">
+                <CardTitle className="flex items-center gap-2">
+                  <Star className="h-5 w-5 text-yellow-500" />
+                  Star
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-3xl font-bold">1.2k</p>
+                <p className="text-sm text-muted-foreground">GitHub Stars</p>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardHeader className="pb-2">
+                <CardTitle className="flex items-center gap-2">
+                  <GitFork className="h-5 w-5 text-blue-500" />
+                  Fork
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-3xl font-bold">350</p>
+                <p className="text-sm text-muted-foreground">GitHub Forks</p>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardHeader className="pb-2">
+                <CardTitle className="flex items-center gap-2">
+                  <Users className="h-5 w-5 text-green-500" />
+                  Contributors
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-3xl font-bold">42</p>
+                <p className="text-sm text-muted-foreground">Active Contributors</p>
+              </CardContent>
+            </Card>
+          </div>
+
+          <div className="flex flex-wrap justify-center gap-4">
+            <Button asChild variant="outline" className="gap-2">
+              <Link href="/docs">
+                <FileText className="h-4 w-4" />
+                Documentation
+              </Link>
+            </Button>
+            <Button asChild variant="outline" className="gap-2">
+              <Link href="/contributing">
+                <BookOpenCheck className="h-4 w-4" />
+                Contribution Guide
+              </Link>
+            </Button>
+            <Button asChild variant="outline" className="gap-2">
+              <Link href="mailto:mjahmad2024@outlook.com">
+                <Mail className="h-4 w-4" />
+                Contact Maintainer
+              </Link>
+            </Button>
+          </div>
+        </div>
+      </div>
+
+      <StatisticsSection />
+
+      <VisionProjectsSection />
+
+      <FeaturedProject />
+
+      <div className="container mx-auto">
+        <section className="py-12">
+          <div className="text-center mb-10">
+            <h2 className="text-4xl font-bold mb-3 bg-gradient-to-r from-blue-600 to-teal-500 bg-clip-text text-transparent">
+              Specialized Development Centers
+            </h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              Comprehensive initiatives working together to transform Cox's Bazar into a model district
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {hubs.map((hub) => (
+              <Card key={hub.name} className="hover:shadow-lg transition-shadow">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    <hub.icon className="h-5 w-5" />
+                    {hub.name}
+                  </CardTitle>
+                  <CardDescription>{hub.description}</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <Button variant="outline" asChild className="w-full">
+                    <Link href={hub.href} className="flex items-center justify-center gap-2">
+                      Explore <ArrowRight className="h-4 w-4" />
+                    </Link>
+                  </Button>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </section>
+      </div>
+
+      <HomeTestimonials />
+
+      <NewsUpdates />
+
+      <div className="container mx-auto px-4 py-12 bg-gray-50">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl font-bold mb-4">Open Source License</h2>
+            <p className="text-gray-600">
+              This project is licensed under the MIT License - see the LICENSE file in the repository for details.
             </p>
           </div>
 
-          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-            <DashboardStats
-              title="Total Hubs"
-              value="12"
-              description="Active information hubs"
-              icon={<BarChart className="h-5 w-5 text-muted-foreground" />}
-              trend={{
-                value: "+2",
-                percentage: "20%",
-                label: "vs. last quarter",
-                positive: true,
-              }}
-            />
-            <DashboardStats
-              title="Active Users"
-              value="1,248"
-              description="Last 30 days"
-              icon={<Users className="h-5 w-5 text-muted-foreground" />}
-              trend={{
-                value: "+189",
-                percentage: "18%",
-                label: "vs. last month",
-                positive: true,
-              }}
-            />
-            <DashboardStats
-              title="Content Updates"
-              value="324"
-              description="Last 30 days"
-              icon={<BarChart3 className="h-5 w-5 text-muted-foreground" />}
-              trend={{
-                value: "-12",
-                percentage: "4%",
-                label: "vs. last month",
-                positive: false,
-              }}
-            />
-            <DashboardStats
-              title="Tasks Completed"
-              value="85%"
-              description="Team efficiency"
-              icon={<CheckCheck className="h-5 w-5 text-muted-foreground" />}
-              trend={{
-                value: "+7%",
-                percentage: "9%",
-                label: "vs. last month",
-                positive: true,
-              }}
-            />
+          <div className="bg-white p-6 rounded-lg shadow-sm border text-sm font-mono overflow-auto max-h-48">
+            <p>MIT License</p>
+            <p className="mt-4">Copyright (c) 2025 MJ Ahmad</p>
+            <p className="mt-4">
+              Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
+              associated documentation files (the "Software"), to deal in the Software without restriction, including
+              without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+              copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the
+              following conditions:
+            </p>
+            <p className="mt-4">
+              The above copyright notice and this permission notice shall be included in all copies or substantial
+              portions of the Software.
+            </p>
+            <p className="mt-4">
+              THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT
+              LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO
+              EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+              IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR
+              THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+            </p>
           </div>
-
-          <Tabs defaultValue="overview" className="mt-8 space-y-4">
-            <TabsList>
-              <TabsTrigger value="overview">Overview</TabsTrigger>
-              <TabsTrigger value="analytics">Analytics</TabsTrigger>
-              <TabsTrigger value="reports">Reports</TabsTrigger>
-              <TabsTrigger value="notifications">Notifications</TabsTrigger>
-            </TabsList>
-
-            <TabsContent value="overview" className="space-y-4">
-              <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-7">
-                <Card className="lg:col-span-4">
-                  <CardHeader>
-                    <CardTitle>Hub Activity</CardTitle>
-                    <CardDescription>Content updates and user interactions across hubs</CardDescription>
-                  </CardHeader>
-                  <CardContent className="pl-2">
-                    <div className="h-[240px] w-full flex items-center justify-center text-muted-foreground">
-                      <AreaChart className="h-16 w-16" />
-                      <span className="ml-2 text-sm">Analytics visualization</span>
-                    </div>
-                  </CardContent>
-                </Card>
-
-                <Card className="lg:col-span-3">
-                  <CardHeader>
-                    <CardTitle>Hub Usage Distribution</CardTitle>
-                    <CardDescription>Traffic distribution by hub</CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="h-[240px] w-full flex items-center justify-center text-muted-foreground">
-                      <PieChart className="h-16 w-16" />
-                      <span className="ml-2 text-sm">Distribution chart</span>
-                    </div>
-                  </CardContent>
-                </Card>
-              </div>
-
-              <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-                <Card className="lg:col-span-1">
-                  <CardHeader>
-                    <CardTitle>Recent Activities</CardTitle>
-                    <CardDescription>Latest activity across the system</CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <RecentActivities />
-                  </CardContent>
-                  <CardFooter>
-                    <Button variant="ghost" size="sm" className="w-full flex items-center gap-1">
-                      <span>View all activity</span>
-                      <ArrowUpRight className="h-4 w-4" />
-                    </Button>
-                  </CardFooter>
-                </Card>
-
-                <Card className="lg:col-span-2">
-                  <CardHeader>
-                    <CardTitle>Project Progress</CardTitle>
-                    <CardDescription>Status of ongoing projects and initiatives</CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <ProjectProgress />
-                  </CardContent>
-                  <CardFooter>
-                    <Button variant="ghost" size="sm" className="w-full flex items-center gap-1">
-                      <span>View project details</span>
-                      <ArrowUpRight className="h-4 w-4" />
-                    </Button>
-                  </CardFooter>
-                </Card>
-              </div>
-            </TabsContent>
-
-            <TabsContent value="analytics">
-              <Card>
-                <CardHeader>
-                  <CardTitle>Analytics</CardTitle>
-                  <CardDescription>Detailed performance metrics and user analytics</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="h-[400px] w-full flex items-center justify-center text-muted-foreground">
-                    <LineChart className="h-16 w-16" />
-                    <span className="ml-2">Detailed analytics will appear here</span>
-                  </div>
-                </CardContent>
-              </Card>
-            </TabsContent>
-
-            <TabsContent value="reports">
-              <Card>
-                <CardHeader>
-                  <CardTitle>Reports</CardTitle>
-                  <CardDescription>System reports and exported data</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="h-[400px] w-full flex items-center justify-center text-muted-foreground">
-                    <BarChart className="h-16 w-16" />
-                    <span className="ml-2">Generated reports will appear here</span>
-                  </div>
-                </CardContent>
-              </Card>
-            </TabsContent>
-
-            <TabsContent value="notifications">
-              <Card>
-                <CardHeader>
-                  <CardTitle>Notifications</CardTitle>
-                  <CardDescription>System alerts and important notifications</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="h-[400px] w-full flex flex-col items-center justify-center text-muted-foreground">
-                    <Inbox className="h-16 w-16" />
-                    <span className="mt-2">Your notifications will appear here</span>
-                  </div>
-                </CardContent>
-              </Card>
-            </TabsContent>
-          </Tabs>
         </div>
-      </main>
+      </div>
+
+      <NewsletterSubscription />
+
+      <LanguageSelector />
     </div>
   )
 }
-

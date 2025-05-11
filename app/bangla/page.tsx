@@ -41,7 +41,7 @@ export default function Bangla() {
     <div className="container mx-auto">
       <div className="flex items-center gap-2 mb-6">
         <Globe className="h-6 w-6" />
-        <h1 className="text-3xl font-bold">বাংলা - ট্রাস্টেড অ্যালাই</h1>
+        <h1 className="text-3xl font-bold">বা���লা - ট্রাস্টেড অ্যালাই</h1>
       </div>
 
       <p className="text-lg mb-8">
@@ -91,4 +91,3 @@ export default function Bangla() {
     </div>
   )
 }
-

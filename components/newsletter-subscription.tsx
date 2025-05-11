@@ -1,21 +1,33 @@
 "use client"
 
-import type React from "react"
-
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { Mail, CheckCircle } from "lucide-react"
+import { Mail, CheckCircle, AlertCircle } from "lucide-react"
+import { subscribeToNewsletter } from "@/app/actions/newsletter"
+import { useFormStatus } from "react-dom"
+
+function SubmitButton() {
+  const { pending } = useFormStatus()
+
+  return (
+    <Button type="submit" disabled={pending}>
+      {pending ? "Subscribing..." : "Subscribe"}
+    </Button>
+  )
+}
 
 export default function NewsletterSubscription() {
   const [email, setEmail] = useState("")
-  const [isSubmitted, setIsSubmitted] = useState(false)
+  const [result, setResult] = useState<{ success: boolean; message: string } | null>(null)
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    // Here you would typically send the email to your backend
-    setIsSubmitted(true)
-    setEmail("")
+  async function handleSubmit(formData: FormData) {
+    const response = await subscribeToNewsletter(formData)
+    setResult(response)
+
+    if (response.success) {
+      setEmail("")
+    }
   }
 
   return (
@@ -31,24 +43,27 @@ export default function NewsletterSubscription() {
             Bazar.
           </p>
 
-          {isSubmitted ? (
-            <div className="flex items-center justify-center space-x-2 text-green-600">
-              <CheckCircle className="h-5 w-5" />
-              <span>Thank you for subscribing! We'll keep you updated.</span>
+          {result ? (
+            <div
+              className={`flex items-center justify-center space-x-2 ${result.success ? "text-green-600" : "text-red-600"} mb-6`}
+            >
+              {result.success ? <CheckCircle className="h-5 w-5" /> : <AlertCircle className="h-5 w-5" />}
+              <span>{result.message}</span>
             </div>
-          ) : (
-            <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-              <Input
-                type="email"
-                placeholder="Enter your email address"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-                className="flex-grow"
-              />
-              <Button type="submit">Subscribe</Button>
-            </form>
-          )}
+          ) : null}
+
+          <form action={handleSubmit} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+            <Input
+              type="email"
+              name="email"
+              placeholder="Enter your email address"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              className="flex-grow"
+            />
+            <SubmitButton />
+          </form>
 
           <p className="text-xs text-gray-500 mt-4">We respect your privacy. Unsubscribe at any time.</p>
         </div>
@@ -56,4 +71,3 @@ export default function NewsletterSubscription() {
     </div>
   )
 }
-

@@ -85,9 +85,9 @@ export default function FeaturedProject() {
               </div>
             </div>
 
-            <Button asChild>
-              <Link href="/digital-education-project" className="flex items-center">
-                Learn more about this initiative <ArrowRight className="ml-2 h-4 w-4" />
+            <Button asChild className="mt-4">
+              <Link href="/initiatives/digital-divide" className="flex items-center gap-2">
+                Learn more about this initiative <ArrowRight className="h-4 w-4" />
               </Link>
             </Button>
           </div>
@@ -96,4 +96,3 @@ export default function FeaturedProject() {
     </div>
   )
 }
-

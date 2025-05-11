@@ -13,52 +13,52 @@ export default function NewsUpdates() {
 
   const newsItems = [
     {
-      title: "New Educational Center Opens in Southern Cox's Bazar",
-      date: "March 15, 2023",
+      title: "Chief Advisor Launches Educational Excellence Initiative",
+      date: "March 15, 2025",
       category: "Education",
       excerpt:
-        "The new center will provide educational resources to over 500 children in the region, offering modern facilities and trained educators.",
-      link: "#",
+        "Chief Advisor Prof. Muhammad Yunus has announced a comprehensive educational reform initiative aimed at modernizing Bangladesh's education system and creating opportunities for underprivileged students.",
+      link: "/news/chief-advisor-initiative",
     },
     {
-      title: "Coastal Cleanup Initiative Removes 5 Tons of Plastic",
-      date: "February 28, 2023",
-      category: "Environment",
+      title: "Cox's Bazar Flood Relief Efforts Mobilized by Trusted Ally",
+      date: "March 5, 2025",
+      category: "Community",
       excerpt:
-        "Volunteers from across the district participated in the largest coastal cleanup event, focusing on preserving marine ecosystems.",
-      link: "#",
+        "In response to recent flooding in Cox's Bazar region, Trusted Ally has coordinated emergency relief efforts, providing essential supplies and temporary shelter to affected communities.",
+      link: "/news/flood-relief",
     },
     {
-      title: "Digital Literacy Program Reaches 10,000 Students Milestone",
-      date: "January 20, 2023",
+      title: "Digital Literacy Program Expands to 50 Schools in Cox's Bazar",
+      date: "March 12, 2025",
       category: "Technology",
       excerpt:
-        "The program has successfully trained 10,000 students in essential digital skills, preparing them for the modern workforce.",
-      link: "#",
+        "The Digital Literacy Program has successfully expanded to 50 schools in Cox's Bazar district, including both traditional and Islamic educational institutions, bridging the digital divide.",
+      link: "/news/digital-literacy",
     },
   ]
 
   const upcomingEvents = [
     {
-      title: "Annual Education Conference",
-      date: "April 15-17, 2023",
+      title: "Educational Innovation Summit",
+      date: "October 15-17, 2025",
       location: "Cox's Bazar Convention Center",
       description:
-        "Join educators, policymakers, and community leaders to discuss the future of education in Cox's Bazar.",
+        "Join educators, policymakers, and technology experts to discuss innovative approaches to education in Bangladesh.",
       link: "#",
     },
     {
-      title: "Community Health Workshop",
-      date: "May 5, 2023",
+      title: "Community Resilience Workshop",
+      date: "November 5, 2025",
       location: "Central Community Hall",
-      description: "Learn about preventive healthcare measures and wellness practices for families and communities.",
+      description: "Learn about disaster preparedness and community resilience strategies for coastal communities.",
       link: "#",
     },
     {
-      title: "Youth Leadership Summit",
-      date: "June 10-12, 2023",
-      location: "Cox's Bazar University",
-      description: "Empowering young leaders with skills and knowledge to drive positive change in their communities.",
+      title: "Youth Digital Skills Bootcamp",
+      date: "December 10-12, 2025",
+      location: "Cox's Bazar Digital Hub",
+      description: "Intensive training program for youth to develop essential digital skills for the modern workforce.",
       link: "#",
     },
   ]
@@ -154,4 +154,3 @@ export default function NewsUpdates() {
     </div>
   )
 }
-

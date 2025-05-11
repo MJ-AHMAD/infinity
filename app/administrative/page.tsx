@@ -103,6 +103,13 @@ export default function Administrative() {
           <h3 className="text-xl font-semibold mb-2">Founder Profile</h3>
           <p className="text-gray-600">Learn about Md Jafor Ahmad, the founder and visionary behind Trusted Ally</p>
         </Link>
+        <Link
+          href="/administrative/contact-logs"
+          className="block p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-all"
+        >
+          <h3 className="text-xl font-semibold mb-2">Contact Logs</h3>
+          <p className="text-gray-600">View all contact form submissions</p>
+        </Link>
       </div>
 
       <Card className="mb-8">
@@ -152,4 +159,3 @@ export default function Administrative() {
     </div>
   )
 }
-
